@@ -9,8 +9,9 @@
 
 $to = [
     'j.conan@fondationface.org',
-    ...
+    'cococoursan@gmail.com',
 ];
+
 
 $html = '
     <html lang="fr">
@@ -19,9 +20,20 @@ $html = '
         </head>
         <body>
             <div>
-                <!-- Vos actualités ici -->
+                Bienvenue, message de ma newletter;
             </div>
         </body>
     </html>
 ';
 
+$subject = 'Newletter';
+$header = array(
+    'Reply-To' => 'azxki01@gmail.com',
+    'X-Mailer' => 'PHP/' . phpversion(),
+    'Mine-Version' => '1.0',
+    'Content-type' => 'text/html; charset=utf-8'
+);
+
+foreach ($to as $value){
+    mail($value, $subject, $html, $header, "-f azxki01@gmail.com");
+}
